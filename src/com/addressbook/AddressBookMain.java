@@ -2,7 +2,11 @@ package com.addressbook;
 
 public class AddressBookMain {
     public static void main(String[] args){
+<<<<<<< HEAD
         System.out.println("Welcome to Address Book Program");
+=======
+        System.out.println("Welcome to Address Book Program");
+>>>>>>> UC1_CreatingContacts
         Contacts contacts = new Contacts();
         contacts.setFirstName("Nishant");
         System.out.println("First Name: "+contacts.getFirstName());
