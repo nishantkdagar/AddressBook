@@ -1,8 +1,15 @@
 package com.addressbook;
 
 public class Contacts {
-    private String firstName, lastName, address, city, state, zipCode, contactNumber, emailAddress;
-    //Constructor for contacts
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private String zipCode;
+    private String contactNumber;
+    private String emailAddress;
+
     public void Contacts() {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -13,12 +20,12 @@ public class Contacts {
         this.contactNumber = contactNumber;
         this.emailAddress = emailAddress;
     }
-    //Setters and Getters
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+
     public String getFirstName() {
         return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -62,9 +69,9 @@ public class Contacts {
     public String getEmailAddress() {
         return emailAddress;
     }
-    //overwritten toString
+
     public String toString() {
         return ("FirstName: " + firstName + "\nLastName: " + lastName + "\nAddress: " + address + "\nCity: " + city + "\nState: " + state +
-                "\nZip Code: " + zipCode + "\nContact Number: " + contactNumber + "\nEmail Address: " + emailAddress);
+                "\nZip Code: " + zipCode + "\nContact Number: " + contactNumber + "\nEmail Address: " + emailAddress + "\n");
     }
-    }
+}
