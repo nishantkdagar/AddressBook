@@ -3,12 +3,12 @@ package com.addressbook;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-//AddressBookMain class
 public class AddressBookMain {
     static ArrayList<Contacts> contactDetails = new ArrayList<>();
     public static void addDetails() {
         Scanner sc = new Scanner(System.in);
         Contacts info = new Contacts();
+        //Entering details from User input
         System.out.print("Enter the First Name : ");
         info.setFirstName(sc.nextLine());
         System.out.print("Enter the Last Name: ");
@@ -27,11 +27,12 @@ public class AddressBookMain {
         info.setEmailAddress(sc.nextLine());
         contactDetails.add(info);
     }
+
     public void editDetails() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the first name you want to edit ");
         String fName = sc.next();
-        // for each loop
+
         for (Contacts contact : contactDetails) {
             String name = contact.getFirstName();
             if (name.equals(fName)) {
@@ -98,31 +99,39 @@ public class AddressBookMain {
     }
     public static void displayContacts() {
         for (Contacts contactsDetailsInfo : contactDetails) {
+            System.out.println("----------------------------------------");
             System.out.println(contactsDetailsInfo);
+            System.out.println("----------------------------------------");
         }
     }
     public void deleteContact() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the first name of the person to be deleted");
-        String firstName = sc.next();
-        Iterator<Contacts> iterator = contactDetails.listIterator();
-        while (iterator.hasNext()) {
+        System.out.println("\nEnter First Name for which you want to delete contact: ");
+        String firstname = sc.next(); //user input
+        Iterator<Contacts> removeContact = contactDetails.iterator();
 
-            Contacts info = iterator.next();
+        while (removeContact.hasNext()){
 
-            if (firstName.equals(info.getFirstName())) {
-                contactDetails.remove(info);
-                System.out.printf("%s Contact removed", firstName + "\n");
-            } else
-                System.out.println("Contact not found\n");
+            Contacts nextElement = removeContact.next();
+            if (nextElement.getFirstName().equals(firstname) ) {
+                removeContact.remove();
+                System.out.println("Contact is removed!");
+                break;
+            }
+            else {
+                System.out.println("Contact not found.");
+            }
         }
     }
+
     public static void main (String[]args){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to Address Book Program!)");
+        System.out.println("Welcome to Address Book Program!");
         AddressBookMain addressDetails = new AddressBookMain();
         int chooseNumber;
+        //do while loop
         do {
+            System.out.println("----------------------------------------");
             System.out.println("Enter the number to perform an action: ");
             System.out.println("1. Add Details \n2. Edit Details \n3. Delete Details \n4. Display Details \n5. exit ");
             chooseNumber = sc.nextInt();

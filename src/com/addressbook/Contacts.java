@@ -9,7 +9,6 @@ public class Contacts {
     private String zipCode;
     private String contactNumber;
     private String emailAddress;
-
     public void Contacts() {
         this.firstName = firstName;
         this.lastName = lastName;
